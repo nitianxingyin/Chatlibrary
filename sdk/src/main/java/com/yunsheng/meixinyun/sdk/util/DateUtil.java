@@ -1,8 +1,3 @@
-/**
- * 用一句话描述该文件做什么.
- * @title DateUtil.java
- * @package com.sinsoft.android.util
- */
 package com.yunsheng.meixinyun.sdk.util;
 
 import java.text.SimpleDateFormat;

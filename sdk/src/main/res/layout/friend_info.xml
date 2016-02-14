@@ -117,7 +117,6 @@
 			    android:orientation="vertical" >
 			
 			    <LinearLayout
-			        android:id="@+id/change_comment"
 			        android:layout_width="fill_parent"
 			        android:layout_height="50.0dip"
 			        android:gravity="center_vertical"
@@ -172,7 +171,6 @@
 			            android:textSize="18.0sp" 
 			            android:text="zhangs"/>
 			        <EditText
-			            android:id="@+id/comment"
 			            android:layout_width="0.0dip"
 			            android:layout_height="wrap_content"
 			            android:layout_marginLeft="5.0dip"
@@ -212,7 +210,6 @@
 			            android:textSize="18.0sp" 
 			            android:text="企信通"/>
 			        <EditText
-			            android:id="@+id/comment"
 			            android:layout_width="0.0dip"
 			            android:layout_height="wrap_content"
 			            android:layout_marginLeft="5.0dip"
@@ -230,7 +227,6 @@
 			        android:background="@drawable/shape_line" />
 			
 			   <LinearLayout
-			        android:id="@+id/change_comment"
 			        android:layout_width="fill_parent"
 			        android:layout_height="50.0dip"
 			        android:gravity="center_vertical"
@@ -256,7 +252,6 @@
 			            android:textSize="18.0sp" 
 			            android:text="1523112344"/>
 			        <EditText
-			            android:id="@+id/comment"
 			            android:layout_width="0.0dip"
 			            android:layout_height="wrap_content"
 			            android:layout_marginLeft="5.0dip"

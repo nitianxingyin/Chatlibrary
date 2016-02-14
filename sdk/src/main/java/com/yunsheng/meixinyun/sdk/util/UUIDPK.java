@@ -6,11 +6,7 @@ import java.net.UnknownHostException;
 import java.security.SecureRandom;
 
 /**
- * <p>
  * Title:UUID主键生成器
- * </p>
- *
- * @author zhoushengyu
  * @version 1.0
  */
 public class UUIDPK implements Serializable {
@@ -23,10 +19,8 @@ public class UUIDPK implements Serializable {
 	}
 
 	/**
-	 * @author zhoushengyu
 	 * @function:
-	 * @param id
-	 *            POID的值。
+	 * @param id POID的值。
 	 * @return
 	 * @throws
 	 */
@@ -60,10 +54,8 @@ public class UUIDPK implements Serializable {
 	// --------以下为UUID的生成函数---------
 
 	/**
-	 * @author zhoushengyu
 	 * @function: 按UUID的产生机制产生一个32位长的Hex字符串。
-	 * @param obj
-	 *            生成UUID的thirdPart时所需要使用的对象的实例引用。
+	 * @param obj 生成UUID的thirdPart时所需要使用的对象的实例引用。
 	 * @return
 	 * @throws
 	 */
@@ -75,7 +67,6 @@ public class UUIDPK implements Serializable {
 	}
 
 	/**
-	 * @author zhoushengyu
 	 * @function: 返回当前时间（毫秒）表示的long型数字（Hex格式）的低8位。
 	 * @param
 	 * @return 返回当前时间（毫秒）表示的long型数字（Hex格式）的低8位
@@ -90,7 +81,6 @@ public class UUIDPK implements Serializable {
 	}
 
 	/**
-	 * @author zhoushengyu
 	 * @function: 底层IP地址表示的32位整数的Hex字符串。
 	 * @param
 	 * @return 底层IP地址表示的32位整数的Hex字符串。
@@ -128,7 +118,6 @@ public class UUIDPK implements Serializable {
 	}
 
 	/**
-	 * @author zhoushengyu
 	 * @function: 调用对象的HashCode码的Hex形式的字符串。
 	 * @param obj
 	 *            使用该类生成hashCode。
@@ -142,7 +131,6 @@ public class UUIDPK implements Serializable {
 	}
 
 	/**
-	 * @author zhoushengyu
 	 * @function: SecureRandom类所产生的在一毫秒内对同一个方法的多个调用的唯一值。
 	 * @param
 	 * @return 在一毫秒内对同一个方法的多个调用的唯一值。
@@ -156,7 +144,6 @@ public class UUIDPK implements Serializable {
 	}
 
 	/**
-	 * @author zhoushengyu
 	 * @function: 把传递过来的字符串加工成8位长。
 	 * @param part
 	 *            要处理的字符串。

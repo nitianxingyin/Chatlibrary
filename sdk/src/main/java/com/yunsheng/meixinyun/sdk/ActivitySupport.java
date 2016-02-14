@@ -19,7 +19,6 @@ import android.provider.Settings;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.yunsheng.meixinyun.sdk.R;
 import com.yunsheng.meixinyun.sdk.comm.Constant;
 import com.yunsheng.meixinyun.sdk.javabean.LoginConfig;
 import com.yunsheng.meixinyun.sdk.service.IMChatService;
@@ -29,7 +28,6 @@ import com.yunsheng.meixinyun.sdk.service.ReConnectService;
 /**
  * Actity 工具类
  *
- * @author shimiso
  */
 public class ActivitySupport extends Activity{
 

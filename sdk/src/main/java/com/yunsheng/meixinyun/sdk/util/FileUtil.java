@@ -130,7 +130,7 @@ public class FileUtil {
 	/**
 	 * 向Text文件中写入内容
 	 *
-	 * @param file
+	 * @param path
 	 * @param content
 	 * @return
 	 */

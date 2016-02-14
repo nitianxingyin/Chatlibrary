@@ -11,16 +11,13 @@ import java.util.regex.Pattern;
 
 /**
  * 正在表达式验证工具类（验证身份证、车牌号等）
- *
- * @author iStar
- *
  */
 public class ValidateUtil {
 
 	/**
 	 * 验证str是否为正确的身份证格式
 	 *
-	 * @param str
+	 * @param view
 	 * @return
 	 */
 	public static boolean isIdentityCard(EditText view) {
@@ -103,7 +100,7 @@ public class ValidateUtil {
 	/**
 	 * 不为空时，验证str是否为正确的身份证格式
 	 *
-	 * @param str
+	 * @param view
 	 * @return
 	 */
 	public static boolean maybeIsIdentityCard(EditText view) {
@@ -188,7 +185,7 @@ public class ValidateUtil {
 	/**
 	 * 验证str是否为正确的身份证格式
 	 *
-	 * @param str
+	 * @param licenc
 	 * @return
 	 */
 	public static boolean isIdentityCard(String licenc) {
@@ -259,7 +256,7 @@ public class ValidateUtil {
 	/**
 	 * 验证str是否为正确的车牌号
 	 *
-	 * @param str
+	 * @param view
 	 * @return
 	 */
 	public static boolean isPlateNo(EditText view) {
