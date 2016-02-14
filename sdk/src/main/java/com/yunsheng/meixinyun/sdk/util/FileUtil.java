@@ -19,7 +19,6 @@ import java.util.List;
  *
  * 文件工具类
  *
- * @author shimiso
  */
 public class FileUtil {
 	private static final String TAG = "FileUtil";

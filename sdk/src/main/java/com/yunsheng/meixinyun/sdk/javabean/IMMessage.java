@@ -119,7 +119,7 @@ public class IMMessage implements Parcelable, Comparable<IMMessage> {
 	}
 
 	/**
-	 * shimiso 按时间降序排列
+	 *  按时间降序排列
 	 */
 	@Override
 	public int compareTo(IMMessage oth) {

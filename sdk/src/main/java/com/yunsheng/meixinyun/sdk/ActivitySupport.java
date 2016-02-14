@@ -21,10 +21,9 @@ import android.widget.Toast;
 
 import com.yunsheng.meixinyun.sdk.R;
 import com.yunsheng.meixinyun.sdk.comm.Constant;
-import com.yunsheng.meixinyun.sdk.model.LoginConfig;
+import com.yunsheng.meixinyun.sdk.javabean.LoginConfig;
 import com.yunsheng.meixinyun.sdk.service.IMChatService;
 import com.yunsheng.meixinyun.sdk.service.IMContactService;
-import com.yunsheng.meixinyun.sdk.service.IMSystemMsgService;
 import com.yunsheng.meixinyun.sdk.service.ReConnectService;
 
 /**
@@ -73,12 +72,10 @@ public class ActivitySupport extends Activity{
         super.onDestroy();
     }
 
-    @Override
     public ProgressDialog getProgressDialog() {
         return pg;
     }
 
-    @Override
     public void startService() {
         //好友联系人服务
         Intent server = new Intent(context, IMContactService.class);
@@ -89,19 +86,12 @@ public class ActivitySupport extends Activity{
         // 自动恢复连接服务
         Intent reConnectService = new Intent(context, ReConnectService.class);
         context.startService(reConnectService);
-        // 系统消息连接服务
-        Intent imSystemMsgService = new Intent(context,
-                IMSystemMsgService.class);
-        context.startService(imSystemMsgService);
     }
 
     /**
-     * �销毁服务
+     * 销毁服务
      *
-     * @author shimiso
-     * @update 2012-5-16 下午12:16:08
      */
-    @Override
     public void stopService() {
         // 好友联系人服务
         Intent server = new Intent(context, IMContactService.class);
@@ -113,32 +103,9 @@ public class ActivitySupport extends Activity{
         // 自动恢复连接服务
         Intent reConnectService = new Intent(context, ReConnectService.class);
         context.stopService(reConnectService);
-
-        // 系统消息连接服务
-        Intent imSystemMsgService = new Intent(context,
-                IMSystemMsgService.class);
-        context.stopService(imSystemMsgService);
     }
 
-    @Override
-    public void isExit() {
-        new AlertDialog.Builder(context).setTitle("确定退出吗?")
-                .setNeutralButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        stopService();
-                        eimApplication.exit();
-                    }
-                })
-                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                }).show();
-    }
 
-    @Override
     public boolean hasInternetConnected() {
         ConnectivityManager manager = (ConnectivityManager) context
                 .getSystemService(context.CONNECTIVITY_SERVICE);
@@ -151,7 +118,6 @@ public class ActivitySupport extends Activity{
         return false;
     }
 
-    @Override
     public boolean validateInternet() {
         ConnectivityManager manager = (ConnectivityManager) context
                 .getSystemService(context.CONNECTIVITY_SERVICE);
@@ -172,7 +138,6 @@ public class ActivitySupport extends Activity{
         return false;
     }
 
-    @Override
     public boolean hasLocationGPS() {
         LocationManager manager = (LocationManager) context
                 .getSystemService(context.LOCATION_SERVICE);
@@ -184,7 +149,6 @@ public class ActivitySupport extends Activity{
         }
     }
 
-    @Override
     public boolean hasLocationNetWork() {
         LocationManager manager = (LocationManager) context
                 .getSystemService(context.LOCATION_SERVICE);

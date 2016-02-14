@@ -2,8 +2,6 @@
  * 用一句话描述该文件做什么.
  * @title DateUtil.java
  * @package com.sinsoft.android.util
- * @author shimiso
- * @update 2012-6-26 上午9:57:56  
  */
 package com.yunsheng.meixinyun.sdk.util;
 
@@ -14,7 +12,6 @@ import java.util.Date;
 /**
  * 日期操作工具类.
  *
- * @author shimiso
  */
 
 public class DateUtil {

@@ -1,10 +1,10 @@
 package com.yunsheng.meixinyun.sdk;
 
 
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,13 +27,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.jivesoftware.smack.Chat;
+import org.jivesoftware.smack.packet.Message;
 
 import com.yunsheng.meixinyun.sdk.R;
+import com.yunsheng.meixinyun.sdk.comm.Constant;
 import com.yunsheng.meixinyun.sdk.manager.ContacterManager;
 import com.yunsheng.meixinyun.sdk.manager.MessageManager;
 import com.yunsheng.meixinyun.sdk.manager.XmppConnectionManager;
 import com.yunsheng.meixinyun.sdk.javabean.IMMessage;
 import com.yunsheng.meixinyun.sdk.javabean.User;
+import com.yunsheng.meixinyun.sdk.util.DateUtil;
 import com.yunsheng.meixinyun.sdk.util.StringUtil;
 
 public class ChatActivity extends ActivitySupport {
@@ -65,6 +68,13 @@ public class ChatActivity extends ActivitySupport {
     }
 
     private void init() {
+
+        to = getIntent().getStringExtra("to");
+        if (to == null)
+            return;
+        chat = XmppConnectionManager.getInstance().getConnection()
+                .getChatManager().createChat(to, null);
+
         titleBack = (ImageView) findViewById(R.id.title_back);
         titleBack.setOnClickListener(new OnClickListener() {
             @Override
@@ -86,11 +96,6 @@ public class ChatActivity extends ActivitySupport {
 
         userInfo = (ImageButton) findViewById(R.id.user_info);
 
-        to = getIntent().getStringExtra("to");
-        if (to == null)
-            return;
-        chat = XmppConnectionManager.getInstance().getConnection()
-                .getChatManager().createChat(to, null);
 
         listView = (ListView) findViewById(R.id.chat_list);
         listView.setCacheColorHint(0);
@@ -131,15 +136,40 @@ public class ChatActivity extends ActivitySupport {
         });
     }
 
-    @Override
     protected void receiveNewMessage(IMMessage message) {
 
     }
 
-    @Override
     protected void refreshMessage(List<IMMessage> messages) {
 
         adapter.refreshList(messages);
+    }
+
+    protected List<IMMessage> getMessages() {
+        return message_pool;
+    }
+
+    protected void sendMessage(String messageContent) throws Exception {
+
+        String time = DateUtil.date2Str(Calendar.getInstance(),
+                Constant.MS_FORMART);
+        Message message = new Message();
+        message.setProperty(IMMessage.KEY_TIME, time);
+        message.setBody(messageContent);
+        chat.sendMessage(message);
+
+        IMMessage newMessage = new IMMessage();
+        newMessage.setMsgType(1);
+        newMessage.setFromSubJid(chat.getParticipant());
+        newMessage.setContent(messageContent);
+        newMessage.setTime(time);
+        message_pool.add(newMessage);
+        MessageManager.getInstance(context).saveIMMessage(newMessage);
+        // MChatManager.message_pool.add(newMessage);
+
+        // 刷新视图
+        refreshMessage(message_pool);
+
     }
 
     @Override
@@ -162,6 +192,12 @@ public class ChatActivity extends ActivitySupport {
             listHead.setVisibility(View.VISIBLE);
         }
         adapter.refreshList(getMessages());
+    }
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(receiver);
+        super.onPause();
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -261,19 +297,6 @@ public class ChatActivity extends ActivitySupport {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent = new Intent();
         switch (item.getItemId()) {
-            case R.id.menu_return_main_page:
-                intent.setClass(context, ChatActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.menu_relogin:
-                intent.setClass(context, LoginActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.menu_exit:
-                isExit();
-                break;
         }
         return true;
 
@@ -286,9 +309,6 @@ public class ChatActivity extends ActivitySupport {
 
         @Override
         public void onClick(View v) {
-            Intent in = new Intent(context, ChatHistoryActivity.class);
-            in.putExtra("to", to);
-            startActivity(in);
         }
     };
 

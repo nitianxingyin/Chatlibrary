@@ -2,19 +2,39 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yunsheng.meixinyun.sdk">
 
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="23" />
+    <!-- 访问Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--- 访问网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ChatActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        android:icon="@drawable/im"
+        android:label="@string/app_name">
+        <uses-library android:name="android.test.runner" />
+        <!-- 聊天 -->
+        <activity
+            android:name="com.yunsheng.meixinyun.sdk.ChatActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"></activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
+        <!-- 联系人服务 -->
+        <service android:name="com.yunsheng.meixinyun.sdk.service.IMContactService"></service>
+        <!-- 聊天服务 -->
+        <service android:name="com.yunsheng.meixinyun.sdk.service.IMChatService"></service>
+        <!-- 重连接服务 -->
+        <service android:name="com.yunsheng.meixinyun.sdk.service.ReConnectService"></service>
     </application>
-
 </manifest>
