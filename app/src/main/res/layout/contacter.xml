@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
 	    android:layout_height="60dip" 
 	    android:gravity="center_vertical" 
-	    android:background="@drawable/skinpic_blue">
+	    android:background="@null">
 	   
 	    <ImageButton
 	        android:id="@+id/title_back"

@@ -10,7 +10,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/change_comment"
+        android:id="@+id/name_layout"
         android:layout_width="fill_parent"
         android:layout_height="50.0dip"
         android:gravity="center_vertical"
@@ -135,7 +135,7 @@
         android:background="@drawable/shape_line" />
 
    <LinearLayout
-        android:id="@+id/change_comment"
+        android:id="@+id/phone_layout"
         android:layout_width="fill_parent"
         android:layout_height="50.0dip"
         android:gravity="center_vertical"
@@ -167,7 +167,7 @@
         android:background="@drawable/shape_line" />
 
    <LinearLayout
-        android:id="@+id/change_comment"
+        android:id="@+id/email_layout"
         android:layout_width="fill_parent"
         android:layout_height="50.0dip"
         android:gravity="center_vertical"

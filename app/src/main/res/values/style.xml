@@ -38,7 +38,7 @@
        <style name="head_style">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/skinpic_blue_j</item>
+        <item name="android:background">@null</item>
         
     </style>
       <!--  activity中head中 底部 样式设置，包括背景高度，宽度-->
